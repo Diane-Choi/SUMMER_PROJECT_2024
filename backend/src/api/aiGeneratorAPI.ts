@@ -14,16 +14,20 @@ router.post("/ai-generator", async (req, res) => {
     // Return => res.json({selectedItem: selectedItem, generatedItems: generatedItems });
 
     console.log('selectedItem:', selectedItem);
-    const clothIds = await aiRecommendation(userId, selectedItem, selectedCategoryCheckbox)
+    const result = await aiRecommendation(userId, selectedItem, selectedCategoryCheckbox)
     
-    if (!clothIds) {
+    if (!result) {
       return res.status(400).json({ error: 'No cloth IDs generated' });
     }
-
+    const { clothIds, explanation } = result;
     const generatedItems = await getAllClothesByUserIdAndClothIds(userId, clothIds);
 
     
-    return res.json({selectedItem: selectedItem, generatedItems: generatedItems });
+    return res.json({
+      selectedItem: selectedItem,
+      generatedItems: generatedItems,
+      explanation: explanation,
+    });
 
 });
 

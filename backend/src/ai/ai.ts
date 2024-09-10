@@ -17,7 +17,7 @@ export const aiRecommendation = async (
   userId: string,
   selectedItem: Cloth,
   selectedCategoryCheckbox: number[]
-): Promise<number[] | undefined> => {
+): Promise<{ clothIds: number[]; explanation: string } | undefined> => {
   const seasonsStr = convertSeasonIdsToSeasons(selectedItem.season);
   const toBeMatchedtypesStr = convertTypeIdsToCategories(
     selectedCategoryCheckbox
@@ -82,7 +82,7 @@ Please ensure that both parts are provided, with the explanation starting on a n
     console.log('Recommendation:', clothIdsOfRecommendation);
     console.log('Explanation:', explanation);
 
-    return clothIds;
+    return { clothIds, explanation };
   } catch (error) {
     console.error('Error with OpenAI API:', error);
   }
