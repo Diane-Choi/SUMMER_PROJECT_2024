@@ -55,12 +55,8 @@ ${toBeMatchedtypesStr.join(', ')}.
 2. Ensure that all selected clothIds are present in the list of available clothes.
 3. Return your response in the following format:
    - An array of selected clothId(s) as a JSON array, like this: [1, 2, 3]
-   - A detailed explanation of why you chose these items, starting with "Explanation:" IN ONE SENTENCE.
-
-*Example format:
-[1, 2, 3]
-Explanation: I chose these items because...
-
+   - A brief description of the chosen clothing items, and why it's a good match but without referring to its sequence position (e.g., 'clothId 2'), starting with "Explanation:" IN ONE SENTENCE.
+   
 Please ensure that both parts are provided, with the explanation starting on a new line after the JSON array. You need to return ${
       toBeMatchedtypesStr.length
     } clothId(s) in the JSON array. You should not include the ${selectedCategoryStr} item in your response. The items' typeId in your reponse should not be repeated.
