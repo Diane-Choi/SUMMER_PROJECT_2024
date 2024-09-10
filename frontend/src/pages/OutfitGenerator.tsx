@@ -102,7 +102,8 @@ export default function OutfitGenerator() {
     };
 
     try {
-      const result = await fetchAIRecommendation(data);
+      const result: any = await fetchAIRecommendation(data);
+      setExplanation(result.explanation);
       setFetchedGeneratedItems(result['generatedItems']);
       addToRecentlyViewed(result['generatedItems']);
       setCategoryCheckbox([]);
@@ -215,7 +216,7 @@ export default function OutfitGenerator() {
           </ul>
 
           {/* right container */}
-          <div className="w-[800px]">
+          <div className="">
             <h3 className="text-start mb-3 sm:text-xxs md:text-sm lg:text-lg font-medium text-gray-strong">
               Select the type of clothes to be matched!
             </h3>
@@ -290,6 +291,13 @@ export default function OutfitGenerator() {
                     isInput={true}
                   />
                 </div>
+                {explanation && (
+                  <div className="flex flex-col items-center justify-center mt-6 sm:px-6 md:px-8 mx-auto max-w-full sm:max-w-lg md:max-w-1xl lg:max-w-2xl xl:max-w-3xl">
+                    <p className="text-center text-gray-strong mb-3 sm:text-xxs md:text-sm lg:text-lg font-medium">
+                      {explanation}
+                    </p>
+                  </div>
+                )}
                 <div className="flex flex-col items-center justify-center">
                   <Button
                     color="secondary"
