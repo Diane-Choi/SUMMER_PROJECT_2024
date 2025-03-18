@@ -1,7 +1,5 @@
 <a id="readme-top"></a>
 
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][main-image]](https://github.com/Diane-Choi/SUMMER_PROJECT_2024)
@@ -26,6 +24,7 @@
 * [![Express][Express]][Express-url]
 * [![Node.js][Node.js]][Node-url]
 * [![Nodemon][Nodemon]][Nodemon-url]
+* [![AWS S3][aws-s3]][aws-s3-url]
 * [![SQLite][SQLite]][SQLite-url]
 
 
@@ -51,6 +50,19 @@ npm install npm@latest -g
    cd ../frontend
    npm install
    ```
+
+### Environment Variables
+Before running the project, create a `.env` file in the `backend/` directory and add the following variables:
+
+```ini
+BUCKET_NAME=
+BUCKET_REGION=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+OPENAI_API_KEY=
+```
+
+Make sure to replace the values with your actual credentials.
 
 ## Running the Project
 ### Start Backend Server
@@ -91,4 +103,5 @@ json-server --watch closetItems.json --port 3002
 [SQLite-url]: https://www.sqlite.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-
+[aws-s3-url]: https://aws.amazon.com/s3/
+[aws-s3]: https://img.shields.io/badge/AWS_S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge
